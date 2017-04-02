@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	char line[] = "Crawwwwling in my skiiiiin these words";
+	char line[] = "What Hi Who lol Why Because!";
 	char *lines[6];
 	char *word;
 	int i;
