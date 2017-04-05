@@ -88,7 +88,7 @@ int env_cmd(char **parsed, int status)
 	{
 		if (execve("/usr/bin/env", parsed, environ) == -1)
 		{
-			perror("Error");
+			perror("Error:");
 			return (-1);
 		}
 		return (status);
@@ -183,8 +183,7 @@ int main(void)
 	char **parsed;
 
 	status = 0;
-	do
-	{
+	do {
 		printf("shell$ ");
 
 		command = get_line(command);
