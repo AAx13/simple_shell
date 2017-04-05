@@ -8,12 +8,12 @@ int _putchar(char c);
 int putstr(char *str);
 
 /* */
-int str_ncmp(char *str1, char *str2, int n);
+int sncmp(char *str1, char *str2, int n);
 
 /* */
-char **parse_line(char *line);
+char **parse(char *line);
 
 /* */
-int exec(char **tokens);
+int exec(char **tokens, char *line);
 
 #endif /* HEADER */

@@ -5,7 +5,7 @@
 #include "header.h"
 
 extern char **environ;
-int exec(char **tokens)
+int exec(char **tokens, char *line)
 {
 	int status;
 	pid_t pid;
@@ -25,6 +25,7 @@ int exec(char **tokens)
 			if (execve(tokens[0], tokens, environ) == -1)
 			{
 				perror("./simple_shell");
+				free(line);
 				free(tokens);
 				_exit(status);
 			}

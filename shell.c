@@ -27,10 +27,10 @@ int main(void)
 		}
 
 		/* split line into tokens */
-		tokens = parse_line(line);
+		tokens = parse(line);
 
 		/* exec commands */
-		status = exec(tokens);
+		status = exec(tokens, line);
 
 		free(tokens);
 

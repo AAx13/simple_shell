@@ -3,7 +3,7 @@
 #include "header.h"
 #define BUFFER 32
 
-char **parse_line(char *line)
+char **parse(char *line)
 {
 	char **tokens;
 	char *token;
