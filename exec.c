@@ -10,30 +10,26 @@ int exec(char **tokens, char *line)
 	int status;
 	pid_t pid;
 
-	status = 1;
-	pid = fork();
-	if (pid == -1)
+	if (*tokens == NULL)
 	{
-		perror("Error");
-		return (-1);
+		return (1);
 	}
 
+	path_cmd(tokens);
+
+	pid = fork();
 	if (pid == 0)
 	{
-		if (**tokens != '\n')
+		if (execve(*tokens, tokens, environ) == -1)
 		{
-			if (execve(tokens[0], tokens, environ) == -1)
-			{
-				perror("./simple_shell");
-				free(line);
-				free(tokens);
-				_exit(status);
-			}
-			return (status);
+			perror("Error");
+			free(line);
+			free(tokens);
+			exit(EXIT_FAILURE);
 		}
+		return (EXIT_SUCCESS);
 	}
 	wait(&status);
-	status = 1;
 
-	return (status);
+	return (1);
 }

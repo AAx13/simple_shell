@@ -4,27 +4,18 @@
 
 int main(void)
 {
-	ssize_t _read;
-	size_t len;
 	char **tokens;
 	char *line;
 	int status;
 
 	status = 1;
-	len = 0;
 	line = NULL;
 	do {
 		/* print prompt */
 		putstr("shell$ ");
 
 		/* read line */
-		_read = getline(&line, &len, stdin);
-		if (_read == -1)
-		{
-			putstr("\nExiting...\n");
-			free(line);
-			return (0);
-		}
+		line = _read();
 
 		/* split line into tokens */
 		tokens = parse(line);
@@ -32,10 +23,10 @@ int main(void)
 		/* exec commands */
 		status = exec(tokens, line);
 
+		free(line);
 		free(tokens);
 
 	} while (status);
 
-	free(line);
 	return (0);
 }
