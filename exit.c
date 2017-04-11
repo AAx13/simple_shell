@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <unistd.h>
 #include "header.h"
 
 void exit_b(char **tokens, char *line)
@@ -12,5 +13,5 @@ void exit_b(char **tokens, char *line)
 	}
 	free(line);
 	free(tokens);
-	exit(status);
+	_exit(status);
 }
