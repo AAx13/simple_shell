@@ -11,7 +11,7 @@ extern char **environ;
 /* this function is like "which" command for the $PATH env variable */
 int path_cmd(char **tokens)
 {
-	char *path, *value, *p_cpy, *new_tok;
+	char *path, *value, *p_cpy;
 	struct dirent *dirc;
 	DIR *dir;
 	int i;
@@ -25,17 +25,17 @@ int path_cmd(char **tokens)
 	path = getenv("PATH");
 	for (i = 0; tokens[i]; i++)
 	{
-		strcpy(p_cpy, path);
+		_strcpy(p_cpy, path);
 		value = strtok(p_cpy, ":");
 		while (value != NULL)
 		{
 			dir = opendir(value);
 			while ((dirc = readdir(dir)) != NULL)
 			{
-				if (strcmp(dirc->d_name, tokens[i]) == 0)
+				if (_strcmp(dirc->d_name, tokens[i]) == 0)
 				{
-					new_tok = _strcat(value, "/");
-					tokens[i] = _strcat(new_tok, tokens[i]);
+					value = _strcat(value, "/");
+					tokens[i] = _strcat(value, tokens[i]);
 					free(p_cpy);
 					return (0);
 				}

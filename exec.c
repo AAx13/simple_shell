@@ -18,6 +18,12 @@ int exec(char **tokens, char *line)
 	path_cmd(tokens);
 
 	pid = fork();
+	if (pid == -1)
+	{
+		perror("Error");
+		return (EXIT_FAILURE);
+	}
+
 	if (pid == 0)
 	{
 		if (execve(*tokens, tokens, environ) == -1)
