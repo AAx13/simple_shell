@@ -28,5 +28,5 @@ int main(void)
 
 	} while (status);
 
-	return (0);
+	return (status);
 }
