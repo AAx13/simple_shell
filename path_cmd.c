@@ -36,6 +36,10 @@ int path_cmd(char **tokens)
 				{
 					value = _strcat(value, "/");
 					tokens[i] = _strcat(value, tokens[i]);
+					if ((closedir(dir)) == -1)
+					{
+						perror("Error");
+					}
 					free(p_cpy);
 					return (0);
 				}
