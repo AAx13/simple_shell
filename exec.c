@@ -16,16 +16,7 @@ int exec(char **tokens, char *line)
 	}
 	else if (_strcmp(*tokens, "exit") == 0)
 	{
-		if (tokens[1] != NULL)
-		{
-			status = _atoi(tokens[1]);
-			free(line);
-			free(tokens);
-			exit(status);
-		}
-		free(line);
-		free(tokens);
-		exit(EXIT_SUCCESS);
+		exit_b(tokens, line);
 	}
 
 	path_cmd(tokens);

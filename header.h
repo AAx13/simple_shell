@@ -35,4 +35,7 @@ int exec(char **tokens, char *line);
 /* */
 int path_cmd(char **tokens);
 
+/* */
+void exit_b(char **tokens, char *line);
+
 #endif /* HEADER */
