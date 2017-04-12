@@ -6,7 +6,7 @@ extern char **environ;
 /* _putchar - writes a character to stdout. */
 int _putchar(char c);
 
-/* _atoi - function to turn the ascii representation of a number into an integer. */
+/* _atoi - function to turn an ascii representation of a number to int */
 int _atoi(char *str);
 
 /* _strlen - gets the length of a string excluding the null byte. */
@@ -36,7 +36,7 @@ char **parse(char *line);
 /* exec - function to execute commands from stdin. */
 int exec(char **tokens, char *line);
 
-/* path_cmd - function will search all directories in $PATH environment variable */
+/* path_cmd - function will search directories in $PATH environment variable */
 int path_cmd(char **tokens);
 
 /* exit_b - exits the program when "exit" command is found. */

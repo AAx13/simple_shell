@@ -1,7 +1,7 @@
 #include "header.h"
 
 /**
- * _atoi - function to turn the ascii representation of a number into an integer
+ * _atoi - function to turn an ascii representation of a number into an integer
  * @str: The string we want to turn into an integer.
  *
  * Return: An integer.

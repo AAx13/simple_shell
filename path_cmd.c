@@ -8,7 +8,7 @@
 #define BUFFER 256
 
 /**
- * path_cmd - function will search all directories in $PATH environment variable
+ * path_cmd - function will search directories in $PATH environment variable
  * for program passed to our shell.
  * @tokens: Parsed commands passed from stdin.
  *
@@ -27,7 +27,6 @@ int path_cmd(char **tokens)
 		putstr("Error: p_cpy->malloc\n");
 		return (EXIT_FAILURE);
 	}
-
 	path = getenv("PATH");
 	for (i = 0; tokens[i]; i++)
 	{
