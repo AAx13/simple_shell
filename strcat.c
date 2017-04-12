@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include "header.h"
 
+/**
+ * _strcat - concatenates two strings.
+ * @dest: The destination string.
+ * @src: The source string.
+ *
+ * Return: The concatenated string.
+ */
 char *_strcat(char *dest, char *src)
 {
 	size_t i;

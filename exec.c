@@ -4,7 +4,13 @@
 #include <unistd.h>
 #include "header.h"
 
-extern char **environ;
+/**
+ * exec - function to execute commands from stdin.
+ * @tokens: The parsed line from stdin.
+ * @line: The original line from stdin.
+ *
+ * Return: EXIT_SUCCESS or EXIT_FAILURE.
+ */
 int exec(char **tokens, char *line)
 {
 	int status;
@@ -19,7 +25,10 @@ int exec(char **tokens, char *line)
 		exit_b(tokens, line);
 	}
 
-	path_cmd(tokens);
+	if (_strncmp(*tokens, "./", 2) != 0)
+	{
+		path_cmd(tokens);
+	}
 
 	pid = fork();
 	if (pid == -1)
@@ -32,7 +41,7 @@ int exec(char **tokens, char *line)
 	{
 		if (execve(*tokens, tokens, environ) == -1)
 		{
-			perror("Error");
+			perror(*tokens);
 			free(line);
 			free(tokens);
 			exit(EXIT_FAILURE);

@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include "header.h"
 
+/**
+ * main - function to loop through each command passed from stdin.
+ *
+ * Return: 0 on Success.
+ */
 int main(void)
 {
 	char **tokens;

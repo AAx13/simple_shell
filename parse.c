@@ -4,6 +4,12 @@
 #include "header.h"
 #define BUFFER 32
 
+/**
+ * parse - function that splits the line from stdin.
+ * @line: String passed from stdin.
+ *
+ * Return: Array of strings (parsed line from stdin).
+ */
 char **parse(char *line)
 {
 	char **tokens;

@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include "header.h"
 
+/**
+ * _read - function to retreive the string (command) from stdin.
+ *
+ * Return: line retreived from stdin.
+ */
 char *_read(void)
 {
 	char *line;

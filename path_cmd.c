@@ -5,10 +5,15 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include "header.h"
-#define BUFFER 512
+#define BUFFER 256
 
-extern char **environ;
-/* this function is like "which" command for the $PATH env variable */
+/**
+ * path_cmd - function will search all directories in $PATH environment variable
+ * for program passed to our shell.
+ * @tokens: Parsed commands passed from stdin.
+ *
+ * Return: EXIT_FAILURE or 0 on Success.
+ */
 int path_cmd(char **tokens)
 {
 	char *path, *value, *p_cpy;
@@ -19,7 +24,8 @@ int path_cmd(char **tokens)
 	p_cpy = malloc(sizeof(char) * BUFFER);
 	if (!p_cpy)
 	{
-		printf("Error: p_cpy->malloc\n");
+		putstr("Error: p_cpy->malloc\n");
+		return (EXIT_FAILURE);
 	}
 
 	path = getenv("PATH");
@@ -36,22 +42,19 @@ int path_cmd(char **tokens)
 				{
 					value = _strcat(value, "/");
 					tokens[i] = _strcat(value, tokens[i]);
-					if ((closedir(dir)) == -1)
-					{
-						perror("Error");
-					}
+					closedir(dir);
 					free(p_cpy);
-					return (0);
+					return (1);
 				}
 			}
 			value = strtok(NULL, ":");
 			if ((closedir(dir)) == -1)
 			{
-				perror("Error:");
+				perror("Error");
+				return (EXIT_FAILURE);
 			}
 		}
 	}
 	free(p_cpy);
-
-	return (1);
+	return (0);
 }

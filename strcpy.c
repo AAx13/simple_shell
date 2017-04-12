@@ -1,5 +1,12 @@
 #include "header.h"
 
+/**
+ * _strcpy - copies the string (src) to the string (dest).
+ * @dest: The copy destination.
+ * @src: The copy source.
+ *
+ * Return: The copied string.
+ */
 char *_strcpy(char *dest, char *src)
 {
 	int i;
