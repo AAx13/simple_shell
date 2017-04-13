@@ -4,6 +4,11 @@
 #include "header.h"
 #define BUFFER 256
 
+/**
+ * _getpath - Gets the $PATH from the environment.
+ *
+ * Return: The value of $PATH.
+ */
 char *_getpath(void)
 {
 	char *value;

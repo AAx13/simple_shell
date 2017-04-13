@@ -9,13 +9,13 @@ int _putchar(char c);
 /* _atoi - function to turn an ascii representation of a number to int */
 int _atoi(char *str);
 
-/* */
+/* memset - fills memory with a constant byte */
 void _memset(void *s, int c, size_t n);
 
 /* _strlen - gets the length of a string excluding the null byte. */
 size_t _strlen(char *str);
 
-/* */
+/* _strdup - duplicate a string. */
 char *_strdup(char *str);
 
 /* _strcpy - copies the string (src) to the string (dest). */
@@ -33,7 +33,7 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 /* putstr - writes a string to stdout. */
 int putstr(char *str);
 
-/* */
+/* _getpath - Gets the $PATH from the environment. */
 char *_getpath(void);
 
 /* _read - function to retreive the string (command) from stdin. */
@@ -48,16 +48,16 @@ int exec(char **tokens, char *line);
 /* path_cmd - function will search directories in $PATH environment variable */
 int path_cmd(char **tokens);
 
-/* */
+/* b_cmd - builds full command path from command name. */
 char *b_cmd(char *token, char *value);
 
-/* */
+/* built_in - handles built-in programs. */
 int built_in(char **tokens, char *line);
 
 /* exit_b - exits the program when "exit" command is found. */
 void exit_b(char **tokens, char *line);
 
-/* */
+/* env_b - prints the current environment to stdout. */
 void env_b(void);
 
 #endif /* HEADER */

@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include "header.h"
 
+/**
+ * _strdup - duplicate a string.
+ * @str: A string to duplicate.
+ *
+ * Return: The duplicated string.
+ */
 char *_strdup(char *str)
 {
 	size_t len, i;

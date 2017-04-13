@@ -4,6 +4,13 @@
 #include "header.h"
 #define BUFFER 256
 
+/**
+ * path_cmd - function will search directories in $PATH environment variable
+ * for program passed to our shell.
+ * @tokens: Parsed commands passed from stdin.
+ *
+ * Return: 1 on failure, or 0 on Success.
+ */
 int path_cmd(char **tokens)
 {
 	char *path, *value, *p_cpy, *cmd_path;

@@ -2,6 +2,13 @@
 #include <string.h>
 #include "header.h"
 
+/**
+ * b_cmd - builds full command path from command name.
+ * @token: The command passed.
+ * @value: The current directory found to have the command file.
+ *
+ * Return: Full command path.
+ */
 char *b_cmd(char *token, char *value)
 {
 	char *cmd_path;

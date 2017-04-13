@@ -10,4 +10,4 @@ run-m:
 run-e:
 	valgrind --track-origins=yes ./simple_shell
 clean:
-	rm simple_shell *~
+	rm simple_shell *~ *\#
