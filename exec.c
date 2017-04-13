@@ -1,4 +1,5 @@
 #include <sys/wait.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -16,18 +17,9 @@ int exec(char **tokens, char *line)
 	int status;
 	pid_t pid;
 
-	if (*tokens == NULL)
+	if (*tokens == NULL || built_in(tokens, line) == 0)
 	{
 		return (1);
-	}
-	else if (_strcmp(*tokens, "exit") == 0)
-	{
-		exit_b(tokens, line);
-	}
-
-	if (_strncmp(*tokens, "./", 2) != 0)
-	{
-		path_cmd(tokens);
 	}
 
 	pid = fork();
@@ -39,6 +31,11 @@ int exec(char **tokens, char *line)
 
 	if (pid == 0)
 	{
+		if (_strncmp(*tokens, "./", 2) != 0)
+		{
+			path_cmd(tokens);
+		}
+
 		if (execve(*tokens, tokens, environ) == -1)
 		{
 			perror(*tokens);

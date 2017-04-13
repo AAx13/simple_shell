@@ -1,59 +1,43 @@
-#include <sys/wait.h>
-#include <unistd.h>
-#include <stdio.h>
+#include <sys/stat.h>
 #include <string.h>
 #include <stdlib.h>
-#include <dirent.h>
 #include "header.h"
 #define BUFFER 256
 
-/**
- * path_cmd - function will search directories in $PATH environment variable
- * for program passed to our shell.
- * @tokens: Parsed commands passed from stdin.
- *
- * Return: EXIT_FAILURE or 0 on Success.
- */
 int path_cmd(char **tokens)
 {
-	char *path, *value, *p_cpy;
-	struct dirent *dirc;
-	DIR *dir;
+	char *path, *value, *p_cpy, *cmd_path;
+	struct stat buf;
 	int i;
 
 	p_cpy = malloc(sizeof(char) * BUFFER);
 	if (!p_cpy)
 	{
-		putstr("Error: p_cpy->malloc\n");
-		return (EXIT_FAILURE);
+		putstr("Error: p_cpy->malloc.\n");
 	}
-	path = getenv("PATH");
+
+	path = _getpath();
 	for (i = 0; tokens[i]; i++)
 	{
 		_strcpy(p_cpy, path);
 		value = strtok(p_cpy, ":");
 		while (value != NULL)
 		{
-			dir = opendir(value);
-			while ((dirc = readdir(dir)) != NULL)
+			cmd_path = b_cmd(tokens[i], value);
+			if (stat(cmd_path, &buf) == 0)
 			{
-				if (_strcmp(dirc->d_name, tokens[i]) == 0)
-				{
-					value = _strcat(value, "/");
-					tokens[i] = _strcat(value, tokens[i]);
-					closedir(dir);
-					free(p_cpy);
-					return (1);
-				}
+				tokens[i] = _strdup(cmd_path);
+				free(cmd_path);
+				free(p_cpy);
+				free(path);
+				return (0);
 			}
+			free(cmd_path);
 			value = strtok(NULL, ":");
-			if ((closedir(dir)) == -1)
-			{
-				perror("Error");
-				return (EXIT_FAILURE);
-			}
 		}
 	}
+	free(path);
 	free(p_cpy);
-	return (0);
+
+	return (1);
 }
