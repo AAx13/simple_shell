@@ -2,18 +2,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "header.h"
-#define BUFFER 256
+#define BUFFER 128
 
 /**
- * _getpath - Gets the $PATH from the environment.
+ * _getenv - Gets the value of an environment variable.
+ * @var: Environment variable.
  *
  * Return: The value of $PATH.
  */
-char *_getpath(void)
+char *_getenv(char *var)
 {
+	size_t len;
 	char *value;
 	unsigned int i, j;
 
+	len = _strlen(var);
 	value = malloc(sizeof(char) * BUFFER);
 	if (!value)
 	{
@@ -23,15 +26,15 @@ char *_getpath(void)
 
 	for (i = 0; environ[i]; i++)
 	{
-		if (_strncmp("PATH=", environ[i], 5) == 0)
+		if (_strncmp(var, environ[i], len) == 0)
 		{
 			break;
 		}
 	}
 
-	for (j = 5; j < BUFFER; j++)
+	for (j = len; j < BUFFER; j++)
 	{
-		value[j - 5] = environ[i][j];
+		value[j - len] = environ[i][j];
 	}
 
 	return (value);

@@ -23,7 +23,7 @@ int path_cmd(char **tokens)
 		putstr("Error: p_cpy->malloc.\n");
 	}
 
-	path = _getpath();
+	path = _getenv("PATH");
 	for (i = 0; tokens[i]; i++)
 	{
 		_strcpy(p_cpy, path);

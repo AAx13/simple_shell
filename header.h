@@ -33,8 +33,11 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 /* putstr - writes a string to stdout. */
 int putstr(char *str);
 
-/* _getpath - Gets the $PATH from the environment. */
-char *_getpath(void);
+/* _getenv - Gets the $PATH from the environment. */
+char *_getenv(char *var);
+
+/* prompt - prints the shell prompt */
+void prompt(void);
 
 /* _read - function to retreive the string (command) from stdin. */
 char *_read(void);
@@ -58,6 +61,12 @@ int built_in(char **tokens, char *line);
 void exit_b(char **tokens, char *line);
 
 /* env_b - prints the current environment to stdout. */
-void env_b(void);
+int env_b(void);
+
+/* _cd - handles the change directory built-in function. */
+int _cd(char **tokens);
+
+/* _getcwd - gets the current working directory. */
+char *_getcwd(void);
 
 #endif /* HEADER */

@@ -17,7 +17,7 @@ int main(void)
 	line = NULL;
 	do {
 		/* print prompt */
-		putstr("shell$ ");
+		prompt();
 
 		/* read line */
 		line = _read();

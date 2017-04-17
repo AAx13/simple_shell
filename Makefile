@@ -1,13 +1,14 @@
-
 all:
-	gcc -Wall -Werror -pedantic -Wextra *.c -o simple_shell
+	gcc -Wall -Werror -pedantic -Wextra *.c -o shell
+gdb:
+	gcc -Wall -Werror -pedantic -Wextra *.c -ggdb -o shell
 run:
-	valgrind ./simple_shell
+	./shell
 run-v:
-	valgrind -v ./simple_shell
+	valgrind -v ./shell
 run-m:
-	valgrind --leak-check=full --show-leak-kinds=all ./simple_shell
+	valgrind --leak-check=full --show-leak-kinds=all ./shell
 run-e:
-	valgrind --track-origins=yes ./simple_shell
+	valgrind --track-origins=yes ./shell
 clean:
-	rm simple_shell *~ *\#
+	rm shell *~ *\#
