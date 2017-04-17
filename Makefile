@@ -11,4 +11,4 @@ run-m:
 run-e:
 	valgrind --track-origins=yes ./simple_shell
 clean:
-	sudo rm simple_shell /usr/share/man/man1/simple_shell.1.gz simple_shell.1.gz simple_shell.1 && mandb
+	sudo rm simple_shell *~ /usr/share/man/man1/simple_shell.1.gz simple_shell.1.gz simple_shell.1 && mandb
