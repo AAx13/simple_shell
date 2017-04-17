@@ -15,7 +15,6 @@ int path_cmd(char **tokens)
 {
 	char *path, *value, *p_cpy, *cmd_path;
 	struct stat buf;
-	int i;
 
 	p_cpy = malloc(sizeof(char) * BUFFER);
 	if (!p_cpy)
@@ -24,24 +23,21 @@ int path_cmd(char **tokens)
 	}
 
 	path = _getenv("PATH");
-	for (i = 0; tokens[i]; i++)
+	_strcpy(p_cpy, path);
+	value = strtok(p_cpy, ":");
+	while (value != NULL)
 	{
-		_strcpy(p_cpy, path);
-		value = strtok(p_cpy, ":");
-		while (value != NULL)
+		cmd_path = build_cmd(*tokens, value);
+		if (stat(cmd_path, &buf) == 0)
 		{
-			cmd_path = b_cmd(tokens[i], value);
-			if (stat(cmd_path, &buf) == 0)
-			{
-				tokens[i] = _strdup(cmd_path);
-				free(cmd_path);
-				free(p_cpy);
-				free(path);
-				return (0);
-			}
+			*tokens = _strdup(cmd_path);
 			free(cmd_path);
-			value = strtok(NULL, ":");
+			free(p_cpy);
+			free(path);
+			return (0);
 		}
+		free(cmd_path);
+		value = strtok(NULL, ":");
 	}
 	free(path);
 	free(p_cpy);

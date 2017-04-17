@@ -51,8 +51,8 @@ int exec(char **tokens, char *line);
 /* path_cmd - function will search directories in $PATH environment variable */
 int path_cmd(char **tokens);
 
-/* b_cmd - builds full command path from command name. */
-char *b_cmd(char *token, char *value);
+/* build_cmd - builds full command path from command name. */
+char *build_cmd(char *token, char *value);
 
 /* built_in - handles built-in programs. */
 int built_in(char **tokens, char *line);
