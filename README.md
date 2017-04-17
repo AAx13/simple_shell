@@ -2,7 +2,7 @@
 
 ## Usage
 
-Run `make` and then `make run` in console.
+Run `make` and then `./simple_shell` or `make run` in console.
 
 `man simple_shell`
 
