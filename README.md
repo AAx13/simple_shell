@@ -4,6 +4,8 @@
 
 Run `make` and then `make run` in console.
 
+`exit` or `Ctrl + D` to exit shell.
+
 ## Other Make Commands
 * `make gdb` - Compile for gdb debugging.
 * `make run-v` - Run with valgrind -v (verbose).
