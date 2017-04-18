@@ -22,7 +22,7 @@ char *build_cmd(char *token, char *value)
 		return (NULL);
 	}
 
-	memset(cmd_path, 0, cmd_len);
+	_memset(cmd_path, 0, cmd_len);
 
 	cmd_path = _strcat(cmd_path, value);
 	cmd_path = _strcat(cmd_path, "/");

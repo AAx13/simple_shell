@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "header.h"
-#define BUFFER 32
 
 /**
  * parse - function that splits the line from stdin.
@@ -14,9 +13,19 @@ char **parse(char *line)
 {
 	char **tokens;
 	char *token;
-	int i;
+	int i, len;
 
-	tokens = malloc(sizeof(char *) * BUFFER);
+	len = 0;
+	for (i = 0; line[i]; i++)
+	{
+		if (line[i] == ' ' || line[i] == '\n')
+		{
+			len++;
+		}
+	}
+	len++;
+
+	tokens = malloc(sizeof(char *) * len);
 	if (!tokens)
 	{
 		putstr("Error: malloc - parse_line\n");

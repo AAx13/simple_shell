@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "header.h"
-#define BUFFER 256
 
 /**
  * path_cmd - function will search directories in $PATH environment variable
@@ -13,18 +12,11 @@
  */
 int path_cmd(char **tokens)
 {
-	char *path, *value, *p_cpy, *cmd_path;
+	char *path, *value, *cmd_path;
 	struct stat buf;
 
-	p_cpy = malloc(sizeof(char) * BUFFER);
-	if (!p_cpy)
-	{
-		putstr("Error: p_cpy->malloc.\n");
-	}
-
 	path = _getenv("PATH");
-	_strcpy(p_cpy, path);
-	value = strtok(p_cpy, ":");
+	value = strtok(path, ":");
 	while (value != NULL)
 	{
 		cmd_path = build_cmd(*tokens, value);
@@ -32,7 +24,6 @@ int path_cmd(char **tokens)
 		{
 			*tokens = _strdup(cmd_path);
 			free(cmd_path);
-			free(p_cpy);
 			free(path);
 			return (0);
 		}
@@ -40,7 +31,6 @@ int path_cmd(char **tokens)
 		value = strtok(NULL, ":");
 	}
 	free(path);
-	free(p_cpy);
 
 	return (1);
 }
