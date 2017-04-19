@@ -24,7 +24,10 @@ int _cd(char **tokens)
 	}
 	else
 	{
-		chdir(tokens[1]);
+		if (chdir(tokens[1]) == -1)
+		{
+			perror(tokens[1]);
+		}
 	}
 	free(cwd);
 
