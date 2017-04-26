@@ -1,7 +1,6 @@
 #ifndef HEADER
 #define HEADER
 #include <stdio.h>
-#define DELIM " \n"
 extern char **environ;
 
 /* _putchar - writes a character to stdout. */
