@@ -16,7 +16,8 @@ int main(void)
 	status = 1;
 	do {
 		/* print prompt */
-		prompt();
+		/*prompt();*/
+		putstr("$ ");
 
 		/* read line */
 		line = _read();
