@@ -23,14 +23,14 @@ int path_cmd(char **tokens)
 		if (stat(cmd_path, &buf) == 0)
 		{
 			*tokens = _strdup(cmd_path);
-			free(cmd_path);
 			free(path);
+			free(cmd_path);
 			return (0);
 		}
 		free(cmd_path);
 		value = strtok(NULL, ":");
 	}
-	free(path);
 
+	free(path);
 	return (1);
 }

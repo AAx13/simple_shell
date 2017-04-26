@@ -14,7 +14,6 @@ int main(void)
 	int status;
 
 	status = 1;
-	line = NULL;
 	do {
 		/* print prompt */
 		prompt();

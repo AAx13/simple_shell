@@ -8,7 +8,7 @@
  * _getenv - Gets the value of an environment variable.
  * @var: Environment variable.
  *
- * Return: The value of $PATH.
+ * Return: The value of the environment variable.
  */
 char *_getenv(char *var)
 {

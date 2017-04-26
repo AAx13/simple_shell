@@ -18,15 +18,7 @@ int built_in(char **tokens, char *line)
 	{
 		return (env_b());
 	}
-	else if (_strcmp(*tokens, "setenv") == 0)
-	{
-		return (setenv(tokens[1], tokens[2], 1));
-	}
-	else if (_strcmp(*tokens, "unsetenv") == 0)
-	{
-		return (unsetenv(tokens[1]));
-	}
-	else if (_strcmp(*tokens, "cd") == 0)
+	else if (_strncmp(*tokens, "cd", 2) == 0)
 	{
 		return (_cd(tokens));
 	}
