@@ -18,6 +18,7 @@ void exit_b(char **tokens, char *line)
 	{
 		status = _atoi(tokens[1]);
 	}
+	putstr("[ Exiting ]\n");
 	free(line);
 	free(tokens);
 	_exit(status);
