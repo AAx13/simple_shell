@@ -32,11 +32,11 @@ char **parse(char *line)
 		return (NULL);
 	}
 
-	token = strtok(line, " \n");
+	token = strtok(line, "\n ");
 	for (i = 0; token; i++)
 	{
 		tokens[i] = token;
-		token = strtok(NULL, " \n");
+		token = strtok(NULL, "\n ");
 	}
 	tokens[i] = NULL;
 

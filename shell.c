@@ -16,8 +16,8 @@ int main(void)
 	status = 1;
 	do {
 		/* print prompt */
-		/*prompt();*/
-		putstr("$ ");
+		prompt();
+		/*putstr("$ ");*/
 
 		/* read line */
 		line = _read();
@@ -28,7 +28,7 @@ int main(void)
 		/* exec commands */
 		status = exec(tokens, line);
 
-		free(line);
+		xfree(line);
 		free(tokens);
 
 	} while (status);
