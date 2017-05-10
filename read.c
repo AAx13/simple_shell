@@ -14,7 +14,7 @@ char *_read(void)
 
 	len = 0;
 	line = NULL;
-	if (getline(&line, &len, stdin) == -1)
+	if (getline(&line, &len, stdin) == -1 || _strcmp(line, "exit") == 0)
 	{
 		putstr("\n[ Exiting ]\n");
 		free(line);

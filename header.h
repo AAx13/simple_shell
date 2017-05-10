@@ -58,7 +58,7 @@ char *build_cmd(char *token, char *value);
 int built_in(char **tokens, char *line);
 
 /* exit_b - exits the program when "exit" command is found. */
-void exit_b(char **tokens, char *line);
+int exit_b(char **tokens, char *line);
 
 /* env_b - prints the current environment to stdout. */
 int env_b(void);

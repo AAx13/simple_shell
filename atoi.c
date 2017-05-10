@@ -22,5 +22,6 @@ int _atoi(char *str)
 			num = num * 10 + (str[i] - 48);
 		}
 	}
+
 	return (num);
 }

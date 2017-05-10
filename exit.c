@@ -9,7 +9,7 @@
  *
  * Return: Void.
  */
-void exit_b(char **tokens, char *line)
+int exit_b(char **tokens, char *line)
 {
 	int status;
 
@@ -18,6 +18,8 @@ void exit_b(char **tokens, char *line)
 	{
 		status = _atoi(tokens[1]);
 	}
+
+	putstr("[ Exiting ]\n");
 	free(line);
 	free(tokens);
 	exit(status);
