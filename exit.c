@@ -11,15 +11,14 @@
  */
 void exit_b(char **tokens, char *line)
 {
-	/*int status;
+	int status;
 
 	status = 0;
 	if (tokens[1] != NULL)
 	{
 		status = _atoi(tokens[1]);
-		}*/
-	putstr("[ Exiting ]\n");
+	}
 	free(line);
 	free(tokens);
-	exit(EXIT_SUCCESS);
+	exit(status);
 }
