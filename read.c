@@ -11,14 +11,12 @@ char *_read(void)
 {
 	char *line;
 	size_t len;
-	int read;
 
 	len = 0;
 	line = NULL;
-	read = getline(&line, &len, stdin);
-	if (read == -1 || _strncmp(line, "exit", 4) == 0)
+	if (getline(&line, &len, stdin) == -1)
 	{
-		putstr("[ Exiting ]\n");
+		putstr("\n[ Exiting ]\n");
 		free(line);
 		exit(EXIT_SUCCESS);
 	}
