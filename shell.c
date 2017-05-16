@@ -33,6 +33,7 @@ int main(void)
 			{
 				status = _atoi(tokens[1]);
 			}
+			putstr("[ Exiting ]\n");
 		}
 		else
 		{
