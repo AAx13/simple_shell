@@ -21,7 +21,6 @@ int _cd(char **tokens)
 	{
 		home = _getenv("HOME");
 		chdir(home);
-		free(home);
 	}
 	else if (chdir(tokens[1]) == -1)
 	{
