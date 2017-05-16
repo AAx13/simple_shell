@@ -17,7 +17,7 @@ int exec(char **tokens, char *line)
 	int status;
 	pid_t pid;
 
-	if (*tokens == NULL || built_in(tokens, line) == 0)
+	if (*tokens == NULL || built_in(tokens) == 0)
 	{
 		return (1);
 	}

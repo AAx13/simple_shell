@@ -78,7 +78,7 @@ int putstr(char *str);
 
 [getenv.c](../master/getenv.c)
 ```c
-/* _getenv - Gets the $PATH from the environment. */
+/* _getenv - Gets the value of an environment variable. */
 char *_getenv(char *var);
 ```
 
@@ -122,12 +122,6 @@ char *b_cmd(char *token, char *value);
 ```c
 /* built_in - handles built-in programs. */
 int built_in(char **tokens, char *line);
-```
-
-[exit.c](../master/exit.c)
-```c
-/* exit_b - exits the program when "exit" command is found. */
-void exit_b(char **tokens, char *line);
 ```
 
 [env.c](../master/env.c)

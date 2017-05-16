@@ -33,7 +33,7 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 /* putstr - writes a string to stdout. */
 int putstr(char *str);
 
-/* _getenv - Gets the $PATH from the environment. */
+/* _getenv - Gets the value of an environment variable. */
 char *_getenv(char *var);
 
 /* prompt - prints the shell prompt */
@@ -55,10 +55,7 @@ int path_cmd(char **tokens);
 char *build_cmd(char *token, char *value);
 
 /* built_in - handles built-in programs. */
-int built_in(char **tokens, char *line);
-
-/* exit_b - exits the program when "exit" command is found. */
-int exit_b(char **tokens, char *line);
+int built_in(char **tokens);
 
 /* env_b - prints the current environment to stdout. */
 int env_b(void);
@@ -68,5 +65,11 @@ int _cd(char **tokens);
 
 /* _getcwd - gets the current working directory. */
 char *_getcwd(void);
+
+/* */
+int _setenv(char *name, char *value);
+
+/* */
+char *build_env(char *name, char *value);
 
 #endif /* HEADER */

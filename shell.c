@@ -25,13 +25,28 @@ int main(void)
 		/* split line into tokens */
 		tokens = parse(line);
 
-		/* exec commands */
-		status = exec(tokens, line);
+		/* handle exit built in */
+		if (_strncmp(*tokens, "exit", 4) == 0)
+		{
+			if (tokens[1] != NULL)
+			{
+				status = _atoi(tokens[1]);
+			}
+			else
+			{
+				status = 0;
+			}
+		}
+		else
+		{
+			/* exec commands */
+			status = exec(tokens, line);
+		}
 
 		free(line);
 		free(tokens);
 
-	} while (status);
+	} while (status == 1);
 
 	return (status);
 }

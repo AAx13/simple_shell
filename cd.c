@@ -15,6 +15,7 @@ int _cd(char **tokens)
 
 	cwd = _getcwd();
 	setenv("OLDPWD", cwd, 1);
+	free(cwd);
 
 	if (tokens[1] == NULL)
 	{
@@ -22,18 +23,14 @@ int _cd(char **tokens)
 		chdir(home);
 		free(home);
 	}
-	else
+	else if (chdir(tokens[1]) == -1)
 	{
-		if (chdir(tokens[1]) == -1)
-		{
-			perror(tokens[1]);
-		}
+		perror(tokens[1]);
 	}
-	free(cwd);
 
 	cwd = _getcwd();
 	setenv("PWD", cwd, 1);
-
 	free(cwd);
+
 	return (0);
 }
