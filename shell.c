@@ -28,13 +28,10 @@ int main(void)
 		/* handle exit built in */
 		if (_strncmp(*tokens, "exit", 4) == 0)
 		{
+			status = 0;
 			if (tokens[1] != NULL)
 			{
 				status = _atoi(tokens[1]);
-			}
-			else
-			{
-				status = 0;
 			}
 		}
 		else
