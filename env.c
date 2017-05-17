@@ -1,11 +1,11 @@
 #include "header.h"
 
 /**
- * env_b - prints the current environment to stdout.
+ * print_env - prints the current environment to stdout.
  *
  * Return: 1 if failed, 0 on success.
  */
-int env_b(void)
+int print_env(void)
 {
 	int i;
 

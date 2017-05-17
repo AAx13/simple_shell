@@ -57,8 +57,8 @@ char *build_cmd(char *token, char *value);
 /* built_in - handles built-in programs. */
 int built_in(char **tokens);
 
-/* env_b - prints the current environment to stdout. */
-int env_b(void);
+/* print_env - prints the current environment to stdout. */
+int print_env(void);
 
 /* _cd - handles the change directory built-in function. */
 int _cd(char **tokens);
@@ -68,6 +68,9 @@ char *_getcwd(void);
 
 /* _setenv - updates or adds an environment variable. */
 int _setenv(char *name, char *value);
+
+/* _unsetenv - remove an environment variable. */
+int _unsetenv(char *name);
 
 /* build_env - builds a full environment variable from given name and value. */
 char *build_env(char *name, char *value);

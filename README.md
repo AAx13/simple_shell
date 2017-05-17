@@ -126,8 +126,8 @@ int built_in(char **tokens, char *line);
 
 [env.c](../master/env.c)
 ```c
-/* env_b - prints the current environment to stdout. */
-int env_b(void);
+/* print_env - prints the current environment to stdout. */
+int print_env(void);
 ```
 
 [cd.c](../master/cd.c)
@@ -140,4 +140,34 @@ int _cd(char **tokens);
 ```c
 /* _getcwd - gets the current working directory. */
 char *_getcwd(void);
+```
+
+[setenv.c](../master/setenv.c)
+```c
+/* _setenv - updates or adds an environment variable. */
+int _setenv(char *name, char *value);
+```
+
+[unsetenv.c](../master/unsetenv.c)
+```c
+/* _unsetenv - remove an environment variable. */
+int _unsetenv(char *name);
+```
+
+[build_env.c](../master/build_env.c)
+```c
+/* build_env - builds a full environment variable from given name and value. */
+char *build_env(char *name, char *value);
+```
+
+[cd_home.c](../master/cd_home.c)
+```c
+/* cd_home - changes directory to home as well as updates environment vars. */
+int cd_home(void);
+```
+
+[cd_prev.c](../master/cd_prev.c)
+```c
+/* cd_prev - change to previous directory and update environment variables. */
+int cd_prev(void);
 ```

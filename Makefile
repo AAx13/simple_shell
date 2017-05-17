@@ -1,7 +1,7 @@
 all:
 	gcc -Wall -Werror -pedantic -Wextra *.c -o simple_shell && cp man_1_simple_shell simple_shell.1 && gzip simple_shell.1 && sudo cp simple_shell.1.gz /usr/share/man/man1 && mandb
 gdb:
-	gcc -Wall -Werror -pedantic -Wextra *.c -ggdb -o simple_shell
+	gcc -Wall -Werror -pedantic -Wextra *.c -ggdb -g -o simple_shell
 run:
 	./simple_shell
 run-v:

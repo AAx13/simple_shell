@@ -10,8 +10,9 @@
  */
 int _setenv(char *name, char *value)
 {
-	char *new_env;
 	size_t name_len;
+	char **new_env;
+	char *new_var;
 	int i;
 
 	name_len = _strlen(name);
@@ -19,11 +20,31 @@ int _setenv(char *name, char *value)
 	{
 		if (_strncmp(environ[i], name, name_len) == 0)
 		{
-			new_env = build_env(name, value);
-			_strcpy(environ[i], new_env);
-			free(new_env);
+			new_var = build_env(name, value);
+			_strcpy(environ[i], new_var);
+			free(new_var);
 			return (0);
 		}
 	}
-	return (-1);
+
+	new_env = malloc(sizeof(char *) * (i + 2));
+	if (!new_env)
+	{
+		perror("malloc->setenv");
+		return (-1);
+	}
+
+	for (i = 0; environ[i]; i++)
+	{
+		new_env[i] = environ[i];
+	}
+	new_var = build_env(name, value);
+	new_env[i] = new_var;
+	new_env[i + 1] = NULL;
+
+	environ = new_env;
+
+	free(new_var);
+	free(new_env);
+	return (0);
 }
