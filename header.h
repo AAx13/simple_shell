@@ -66,10 +66,17 @@ int _cd(char **tokens);
 /* _getcwd - gets the current working directory. */
 char *_getcwd(void);
 
-/* */
+/* _setenv - updates or adds an environment variable. */
 int _setenv(char *name, char *value);
 
-/* */
+/* build_env - builds a full environment variable from given name and value. */
 char *build_env(char *name, char *value);
+
+/* cd_home - changes directory to home as well as updates environment vars. */
+int cd_home(void);
+
+/* cd_prev - change to previous directory and update environment variables. */
+int cd_prev(void);
+
 
 #endif /* HEADER */

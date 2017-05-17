@@ -1,6 +1,13 @@
 #include "header.h"
 #include <stdlib.h>
 
+/**
+ * build_env - builds a full environment variable from given name and value.
+ * @name: Variable name.
+ * @value: Variable value.
+ *
+ * Return: String containing full environment variable.
+ */
 char *build_env(char *name, char *value)
 {
 	char *new_env;

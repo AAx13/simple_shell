@@ -1,6 +1,13 @@
 #include "header.h"
 #include <stdlib.h>
 
+/**
+ * _setenv - updates or adds an environment variable.
+ * @name: Variable name.
+ * @value: Variable value.
+ *
+ * Return: 0 on success otherwise -1.
+ */
 int _setenv(char *name, char *value)
 {
 	char *new_env;
