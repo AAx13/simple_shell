@@ -24,11 +24,13 @@ int path_cmd(char **tokens)
 		{
 			*tokens = _strdup(cmd_path);
 			free(cmd_path);
+			free(path);
 			return (0);
 		}
 		free(cmd_path);
 		value = strtok(NULL, ":");
 	}
+	free(path);
 
 	return (1);
 }

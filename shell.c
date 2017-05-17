@@ -26,7 +26,7 @@ int main(void)
 		tokens = parse(line);
 
 		/* handle exit built in */
-		if (_strncmp(*tokens, "exit", 4) == 0)
+		if (_strncmp(tokens[0], "exit", 4) == 0)
 		{
 			status = 0;
 			if (tokens[1] != NULL)

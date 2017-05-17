@@ -79,7 +79,7 @@ int putstr(char *str);
 [getenv.c](../master/getenv.c)
 ```c
 /* _getenv - Gets the value of an environment variable. */
-char *_getenv(char *var);
+char *_getenv(char *name);
 ```
 
 [prompt.c](../master/prompt.c)

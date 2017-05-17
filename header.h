@@ -34,7 +34,7 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 int putstr(char *str);
 
 /* _getenv - Gets the value of an environment variable. */
-char *_getenv(char *var);
+char *_getenv(char *name);
 
 /* prompt - prints the shell prompt */
 void prompt(void);
