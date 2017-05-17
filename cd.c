@@ -14,7 +14,7 @@ int _cd(char **tokens)
 	char *cwd;
 
 	cwd = _getcwd();
-	setenv("OLDPWD", cwd, 1);
+	_setenv("OLDPWD", cwd);
 	free(cwd);
 
 	if (tokens[1] == NULL)
@@ -29,7 +29,7 @@ int _cd(char **tokens)
 	}
 
 	cwd = _getcwd();
-	setenv("PWD", cwd, 1);
+	_setenv("PWD", cwd);
 	free(cwd);
 
 	return (0);
