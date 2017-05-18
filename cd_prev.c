@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 #include "header.h"
 
 /**
@@ -17,7 +16,6 @@ int cd_prev(char **env)
 	cwd = _getcwd(env);
 
 	prevdir = _getenv("OLDPWD");
-	printf("%s\n", prevdir);
 	chdir(prevdir);
 	free(prevdir);
 
