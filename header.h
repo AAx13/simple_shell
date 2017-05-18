@@ -37,7 +37,7 @@ int putstr(char *str);
 char *_getenv(char *name);
 
 /* prompt - prints the shell prompt */
-void prompt(void);
+void prompt(char **env);
 
 /* _read - function to retreive the string (command) from stdin. */
 char *_read(char **env);
@@ -64,7 +64,7 @@ int print_env(char **env);
 int _cd(char **tokens, char **env);
 
 /* _getcwd - gets the current working directory. */
-char *_getcwd(void);
+char *_getcwd(char **env);
 
 /* _setenv - updates or adds an environment variable. */
 int _setenv(char *name, char *value, char **env);

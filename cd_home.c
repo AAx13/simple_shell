@@ -13,7 +13,7 @@ int cd_home(char **env)
 	char *home;
 	char *cwd;
 
-	cwd = _getcwd();
+	cwd = _getcwd(env);
 	_setenv("OLDPWD", cwd, env);
 	free(cwd);
 
@@ -21,7 +21,7 @@ int cd_home(char **env)
 	chdir(home);
 	free(home);
 
-	cwd = _getcwd();
+	cwd = _getcwd(env);
 	_setenv("PWD", cwd, env);
 	free(cwd);
 

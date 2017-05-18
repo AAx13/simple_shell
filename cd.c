@@ -13,19 +13,15 @@ int _cd(char **tokens, char **env)
 {
 	char *cwd;
 
-	if (tokens[1] == NULL)
+	if (tokens[1] != NULL)
 	{
-		cd_home(env);
-	}
-	else
-	{
-		if (_strcmp(tokens[1], "-") == 0)
+		if (_strncmp(tokens[1], "-", 1) == 0)
 		{
 			cd_prev(env);
 		}
 		else
 		{
-			cwd = _getcwd();
+			cwd = _getcwd(env);
 			_setenv("OLDPWD", cwd, env);
 			free(cwd);
 			if (chdir(tokens[1]) == -1)
@@ -33,10 +29,14 @@ int _cd(char **tokens, char **env)
 				perror(tokens[1]);
 			}
 
-			cwd = _getcwd();
+			cwd = _getcwd(env);
 			_setenv("PWD", cwd, env);
 			free(cwd);
 		}
+	}
+	else
+	{
+		cd_home(env);
 	}
 
 	return (0);

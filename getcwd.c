@@ -5,13 +5,16 @@
 
 /**
  * _getcwd - gets the current working directory.
+ * @env: Array of strings containing envirionment variables.
  *
  * Return: Returns a string containing the current working directory.
  */
-char *_getcwd(void)
+char *_getcwd(char **env)
 {
 	char *cwd;
 	size_t len;
+
+	environ = env;
 
 	len = PATH_MAX;
 	cwd = malloc(sizeof(char) * len);

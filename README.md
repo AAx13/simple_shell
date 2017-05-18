@@ -85,7 +85,7 @@ char *_getenv(char *name);
 [prompt.c](../master/prompt.c)
 ```c
 /* prompt - prints the shell prompt */
-void prompt(void);
+void prompt(char **env);
 ```
 
 [read.c](../master/read.c)
@@ -139,7 +139,7 @@ int _cd(char **tokens);
 [getcwd.c](../master/getcwd.c)
 ```c
 /* _getcwd - gets the current working directory. */
-char *_getcwd(void);
+char *_getcwd(char **env);
 ```
 
 [setenv.c](../master/setenv.c)
