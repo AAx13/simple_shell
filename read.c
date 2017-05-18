@@ -4,10 +4,11 @@
 
 /**
  * _read - function to retreive the string (command) from stdin.
+ * @env: Array of strings containing envirionment variables.
  *
  * Return: line retreived from stdin.
  */
-char *_read(void)
+char *_read(char **env)
 {
 	char *line;
 	size_t len;
@@ -18,6 +19,7 @@ char *_read(void)
 	{
 		putstr("\n[ Exiting ]\n");
 		free(line);
+		free_env(env);
 		exit(EXIT_SUCCESS);
 	}
 

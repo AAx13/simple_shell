@@ -4,44 +4,30 @@
 /**
  * _unsetenv - remove an environment variable.
  * @name: Name of the environment variable to remove.
+ * @env: Array of strings containing envirionment variables.
  *
  * Return: 0 if successful or -1 if unsuccessful.
  */
-int _unsetenv(char *name)
+int _unsetenv(char *name, char **env)
 {
-	char **new_env;
+	char **temp_env;
 	size_t name_len;
-	int env_len;
-	int i, x;
 
 	name_len = _strlen(name);
-	for (i = 0; environ[i]; i++)
+	while (*env)
 	{
-		if (_strncmp(environ[i], name, name_len) == 0)
+		if (_strncmp(*env, name, name_len) == 0)
 		{
-			x = i;
+			temp_env = env;
+			free(temp_env[0]);
+			do {
+				temp_env[0] = temp_env[1];
+				temp_env++;
+
+			} while (*temp_env);
 		}
+		env++;
 	}
 
-	env_len = i;
-	new_env = malloc(sizeof(char *) * i);
-	if (!new_env)
-	{
-		perror("malloc->unsetenv");
-		return (-1);
-	}
-
-	for (i = 0; i < env_len; i++)
-	{
-		if (i != x)
-		{
-			new_env[i] = environ[i];
-		}
-	}
-	new_env[i] = NULL;
-
-	environ = new_env;
-
-	free(new_env);
 	return (0);
 }

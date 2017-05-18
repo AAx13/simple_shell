@@ -4,10 +4,10 @@
 
 /**
  * cd_prev - change to previous directory and update environment variables.
- *
+ * @env: Array of strings containing envirionment variables.
  * Return: 0.
  */
-int cd_prev(void)
+int cd_prev(char **env)
 {
 	char *prevdir;
 	char *cwd;
@@ -18,11 +18,11 @@ int cd_prev(void)
 	chdir(prevdir);
 	free(prevdir);
 
-	_setenv("OLDPWD", cwd);
+	_setenv("OLDPWD", cwd, env);
 	free(cwd);
 
 	cwd = _getcwd();
-	_setenv("PWD", cwd);
+	_setenv("PWD", cwd, env);
 	free(cwd);
 
 	return (0);

@@ -154,10 +154,10 @@ int _setenv(char *name, char *value);
 int _unsetenv(char *name);
 ```
 
-[build_env.c](../master/build_env.c)
+[build_var.c](../master/build_var.c)
 ```c
-/* build_env - builds a full environment variable from given name and value. */
-char *build_env(char *name, char *value);
+/* build_var - builds a full environment variable from given name and value. */
+char *build_var(char *name, char *value);
 ```
 
 [cd_home.c](../master/cd_home.c)
@@ -170,4 +170,10 @@ int cd_home(void);
 ```c
 /* cd_prev - change to previous directory and update environment variables. */
 int cd_prev(void);
+```
+
+[free_env.c](../master/free_env.c)
+```c
+/* free_env - frees an array of strings containing env variables. */
+void free_env(char **env);
 ```

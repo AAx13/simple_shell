@@ -2,21 +2,22 @@
 
 /**
  * print_env - prints the current environment to stdout.
+ * @env: Array of strings containing environment variables.
  *
  * Return: 1 if failed, 0 on success.
  */
-int print_env(void)
+int print_env(char **env)
 {
 	int i;
 
-	if (environ == NULL)
+	if (env == NULL)
 	{
 		return (1);
 	}
 
-	for (i = 0; environ[i]; i++)
+	for (i = 0; env[i]; i++)
 	{
-		putstr(environ[i]);
+		putstr(env[i]);
 		_putchar('\n');
 	}
 

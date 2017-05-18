@@ -40,13 +40,13 @@ char *_getenv(char *name);
 void prompt(void);
 
 /* _read - function to retreive the string (command) from stdin. */
-char *_read(void);
+char *_read(char **env);
 
 /* parse - function that splits the line from stdin. */
 char **parse(char *line);
 
 /* exec - function to execute commands from stdin. */
-int exec(char **tokens, char *line);
+int exec(char **tokens, char *line, char **env);
 
 /* path_cmd - function will search directories in $PATH environment variable */
 int path_cmd(char **tokens);
@@ -55,31 +55,33 @@ int path_cmd(char **tokens);
 char *build_cmd(char *token, char *value);
 
 /* built_in - handles built-in programs. */
-int built_in(char **tokens);
+int built_in(char **tokens, char **env);
 
 /* print_env - prints the current environment to stdout. */
-int print_env(void);
+int print_env(char **env);
 
 /* _cd - handles the change directory built-in function. */
-int _cd(char **tokens);
+int _cd(char **tokens, char **env);
 
 /* _getcwd - gets the current working directory. */
 char *_getcwd(void);
 
 /* _setenv - updates or adds an environment variable. */
-int _setenv(char *name, char *value);
+int _setenv(char *name, char *value, char **env);
 
 /* _unsetenv - remove an environment variable. */
-int _unsetenv(char *name);
+int _unsetenv(char *name, char **env);
 
-/* build_env - builds a full environment variable from given name and value. */
-char *build_env(char *name, char *value);
+/* build_var - builds a full environment variable from given name and value. */
+char *build_var(char *name, char *value);
 
 /* cd_home - changes directory to home as well as updates environment vars. */
-int cd_home(void);
+int cd_home(char **env);
 
 /* cd_prev - change to previous directory and update environment variables. */
-int cd_prev(void);
+int cd_prev(char **env);
 
+/* free_env - frees an array of strings containing env variables. */
+void free_env(char **env);
 
 #endif /* HEADER */

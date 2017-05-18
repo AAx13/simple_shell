@@ -5,46 +5,34 @@
  * _setenv - updates or adds an environment variable.
  * @name: Variable name.
  * @value: Variable value.
+ * @env: Array of strings containing environment variables.
  *
  * Return: 0 on success otherwise -1.
  */
-int _setenv(char *name, char *value)
+int _setenv(char *name, char *value, char **env)
 {
 	size_t name_len;
-	char **new_env;
 	char *new_var;
 	int i;
 
 	name_len = _strlen(name);
-	for (i = 0; environ[i]; i++)
+	for (i = 0; env[i]; i++)
 	{
-		if (_strncmp(environ[i], name, name_len) == 0)
+		if (_strncmp(env[i], name, name_len) == 0)
 		{
-			new_var = build_env(name, value);
-			_strcpy(environ[i], new_var);
+			new_var = build_var(name, value);
+			free(env[i]);
+			env[i] = _strdup(new_var);
 			free(new_var);
 			return (0);
 		}
 	}
 
-	new_env = malloc(sizeof(char *) * (i + 2));
-	if (!new_env)
-	{
-		perror("malloc->setenv");
-		return (-1);
-	}
-
-	for (i = 0; environ[i]; i++)
-	{
-		new_env[i] = environ[i];
-	}
-	new_var = build_env(name, value);
-	new_env[i] = new_var;
-	new_env[i + 1] = NULL;
-
-	environ = new_env;
-
+	new_var = build_var(name, value);
+	free(env[i]);
+	env[i] = _strdup(new_var);
+	env[++i] = NULL;
 	free(new_var);
-	free(new_env);
+
 	return (0);
 }
