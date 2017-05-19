@@ -19,7 +19,7 @@ char *_read(char **env)
 	{
 		free(line);
 		free_env(env);
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 
 	return (line);

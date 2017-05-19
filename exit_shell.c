@@ -26,4 +26,11 @@ void exit_shell(char **tokens, char *line, char **env)
 		putstr(tokens[1]);
 		_putchar('\n');
 	}
+	else
+	{
+		free(line);
+		free(tokens);
+		free_env(env);
+		exit(status);
+	}
 }
