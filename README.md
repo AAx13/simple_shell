@@ -177,3 +177,9 @@ int cd_prev(void);
 /* free_env - frees an array of strings containing env variables. */
 void free_env(char **env);
 ```
+
+[exit_shell.c](../master/exit_shell.c)
+```c
+/* exit_shell - exits shell with arguments. */
+int exit_shell(char **tokens);
+```

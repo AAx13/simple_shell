@@ -19,9 +19,7 @@ char **parse(char *line)
 	for (i = 0; line[i]; i++)
 	{
 		if (line[i] == ' ' || line[i] == '\n')
-		{
 			len++;
-		}
 	}
 	len++;
 

@@ -17,7 +17,6 @@ char *_read(char **env)
 	line = NULL;
 	if (getline(&line, &len, stdin) == -1)
 	{
-		putstr("\n[ Exiting ]\n");
 		free(line);
 		free_env(env);
 		exit(EXIT_SUCCESS);

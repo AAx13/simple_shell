@@ -11,9 +11,7 @@ int print_env(char **env)
 	int i;
 
 	if (env == NULL)
-	{
 		return (1);
-	}
 
 	for (i = 0; env[i]; i++)
 	{

@@ -84,4 +84,7 @@ int cd_prev(char **env);
 /* free_env - frees an array of strings containing env variables. */
 void free_env(char **env);
 
+/* exit_shell - exits shell with arguments. */
+void exit_shell(char **tokens, char *line, char **env);
+
 #endif /* HEADER */

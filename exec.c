@@ -19,9 +19,7 @@ int exec(char **tokens, char *line, char **env)
 	pid_t pid;
 
 	if (*tokens == NULL || built_in(tokens, env) == 0)
-	{
 		return (1);
-	}
 
 	pid = fork();
 	if (pid == -1)

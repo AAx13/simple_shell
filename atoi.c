@@ -9,18 +9,37 @@
 int _atoi(char *str)
 {
 	int i;
-	int num;
+	int num, sentinel;
 
+	sentinel = 0;
 	for (i = 0; str[i]; i++)
 	{
-		if (i == 0)
+		if (str[i] == '-')
 		{
-			num = str[i] - 48;
+			i++;
+			sentinel++;
+		}
+
+		if (str[i] > 47 && str[i] < 58)
+		{
+
+			if (i == 0 || (i == 1 && sentinel > 0))
+			{
+				num = str[i] - 48;
+			}
+			else
+			{
+				num = num * 10 + (str[i] - 48);
+			}
 		}
 		else
 		{
-			num = num * 10 + (str[i] - 48);
+			return (1);
 		}
+	}
+	if (sentinel > 0)
+	{
+		num *= -1;
 	}
 
 	return (num);
